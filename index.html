@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>امیرمحمد کلاته | Portfolio</title>
+<style>
+:root{--bg:#151617;--panel:#202122;--soft:#292a2b;--line:#393a3b;--text:#f1f1ee;--muted:#a8a9a7}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:"B Nazanin","BNazanin",Tahoma,sans-serif;line-height:1.9}
+.en{font-family:"Times New Roman",serif;direction:ltr;display:inline-block}
+.container{width:min(1180px,92%);margin:auto}a{color:inherit;text-decoration:none}
+nav{position:sticky;top:0;z-index:50;background:rgba(21,22,23,.82);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+.navin{height:70px;display:flex;align-items:center;justify-content:space-between}
+.brand{font-size:23px;font-weight:bold}.navlinks{display:flex;gap:28px;color:var(--muted)}
+.navlinks a:hover{color:#fff}
+.hero{min-height:760px;display:grid;grid-template-columns:1.45fr .75fr;align-items:center;gap:70px;padding:80px 0 110px;position:relative}
+.hero:after{content:"";position:absolute;inset:auto 0 25px 0;height:1px;background:linear-gradient(90deg,transparent,#555,transparent)}
+.kicker{font-size:18px;color:#aaa;margin-bottom:18px}
+h1{font-size:clamp(50px,7vw,86px);line-height:1.02;margin:0 0 28px;letter-spacing:-2px}
+h1 em{font-style:normal;color:#929494}
+.lead{font-size:21px;color:#c5c6c4;max-width:720px}
+.cta{display:flex;gap:12px;margin-top:34px}.btn{border:1px solid #666;padding:10px 24px;border-radius:7px;background:transparent;color:#eee;cursor:pointer;font:inherit}
+.btn.primary{background:#eee;color:#171819;border-color:#eee}.btn:hover{transform:translateY(-2px)}
+.photo{aspect-ratio:4/5;border-radius:18px;border:1px solid #444;background:linear-gradient(145deg,#343536,#1a1b1c);overflow:hidden;display:flex;align-items:center;justify-content:center;color:#888}
+.photo img{width:100%;height:100%;object-fit:cover;display:none}
+.section{padding:100px 0;border-top:1px solid var(--line)}.eyebrow{font-family:"Times New Roman",serif;direction:ltr;color:#888;letter-spacing:2px;font-size:13px}
+h2{font-size:43px;margin:6px 0 40px}.aboutgrid{display:grid;grid-template-columns:1.2fr .8fr;gap:70px}
+.abouttext{font-size:20px;color:#c5c6c4}.timeline{border-right:1px solid #555;padding-right:28px}
+.job{margin-bottom:28px}.job h3{font-size:21px;margin:0}.meta{font-size:15px;color:#999}.job p{color:#b8b9b8;margin:5px 0}
+.skills-grid{display:grid;grid-template-columns:1fr 1fr;gap:13px 55px}.skill{padding:11px 0}
+.skilltop{display:flex;justify-content:space-between;font-size:18px}.skilltop small{color:#aaa;font-family:"Times New Roman",serif;direction:ltr}
+.bar{height:7px;background:#343536;border-radius:20px;margin-top:7px;overflow:hidden}.fill{height:100%;width:var(--w);background:linear-gradient(90deg,#707274,#eee);border-radius:20px}
+.personal{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin-top:42px}.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:22px}
+.card h3{margin:0;font-size:19px}.card p{color:#999;margin:0}
+.architecture{width:100%;background:#111;border:1px solid var(--line);border-radius:16px;padding:16px}
+.architecture iframe{display:block;width:100%;height:min(78vw,760px);border:1px solid #444;border-radius:8px;background:#fff}
+.arch-caption{display:flex;justify-content:space-between;align-items:end;padding:12px 4px 2px}.arch-caption h3{margin:0;font-size:25px}.arch-caption p{margin:0;color:#888}
+.logo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.logo-card{aspect-ratio:4/3;background:#252627;border:1px solid var(--line);border-radius:12px;overflow:hidden;cursor:pointer;position:relative}
+.logo-card img{width:100%;height:100%;object-fit:cover;transition:.45s}.logo-card:hover img{transform:scale(1.035)}
+.logo-card .num{position:absolute;bottom:10px;right:12px;background:rgba(0,0,0,.6);padding:1px 9px;border-radius:20px;font-family:"Times New Roman",serif}
+.webgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.webcard{background:var(--panel);border:1px solid var(--line);padding:26px;border-radius:13px;min-height:180px}
+.webcard h3{margin:0 0 4px;font-size:24px}.webcard p{color:#999}.webcard .visit{font-family:"Times New Roman",serif;color:#ddd}
+.note{color:#777;font-size:14px;margin-top:18px}
+footer{padding:55px 0;color:#777;border-top:1px solid var(--line)}
+.lightbox{position:fixed;inset:0;background:rgba(0,0,0,.88);z-index:100;display:none;align-items:center;justify-content:center;padding:30px}
+.lightbox.active{display:flex}.lightbox-inner{width:min(1000px,92vw);max-height:90vh;display:flex;flex-direction:column;align-items:center;gap:14px}
+.lightbox-img{max-width:100%;max-height:76vh;object-fit:contain;border-radius:5px;box-shadow:0 20px 60px #000}
+.controls{display:flex;gap:12px}.controls button{background:#242526;color:#eee;border:1px solid #555;border-radius:7px;padding:8px 22px;cursor:pointer;font:inherit}
+.closehint{color:#888;font-size:13px}
+@media(max-width:800px){
+ .navlinks{display:none}.hero{grid-template-columns:1fr;min-height:auto;padding-top:55px}.photo{max-width:320px;margin:auto;grid-row:1}
+ .aboutgrid{grid-template-columns:1fr}.skills-grid{grid-template-columns:1fr}.personal{grid-template-columns:1fr}
+ .logo-grid,.webgrid{grid-template-columns:1fr 1fr}.architecture iframe{height:520px}h2{font-size:35px}
+}
+@media(max-width:500px){.logo-grid,.webgrid{grid-template-columns:1fr}.lead{font-size:18px}h1{font-size:50px}}
+</style>
+</head>
+<body>
+
+<nav><div class="container navin">
+  <div class="brand">امیرمحمد کلاته</div>
+  <div class="navlinks">
+    <a href="#about">درباره من</a><a href="#skills">مهارت‌ها</a><a href="#architecture">معماری</a><a href="#logos">گرافیک</a><a href="#web">وب</a>
+  </div>
+</div></nav>
+
+<header class="container hero">
+  <div>
+    <div class="kicker">معمار · طراح وب · طراح گرافیک</div>
+    <h1>ایده را طراحی می‌کنم؛<br><em>بعد به آن شکل می‌دهم.</em></h1>
+    <p class="lead">امیرمحمد کلاته هستم؛ فارغ‌التحصیل مهندسی معماری از دانشگاه شهید بهشتی، با تجربه در معماری، BIM، طراحی وب و طراحی گرافیک.</p>
+    <div class="cta"><a class="btn primary" href="#architecture">مشاهده Portfolio</a><a class="btn" href="#about">درباره من</a></div>
+  </div>
+  <div class="photo">
+    <span>profile.jpg</span>
+    <img src="profile.jpg" alt="امیرمحمد کلاته" onload="this.style.display='block';this.previousElementSibling.style.display='none'">
+  </div>
+</header>
+
+<section id="about" class="section"><div class="container">
+ <div class="eyebrow">ABOUT ME</div><h2>درباره من</h2>
+ <div class="aboutgrid">
+  <div class="abouttext">
+   من امیرمحمد کلاته، فارغ‌التحصیل <b>مهندسی معماری از دانشگاه شهید بهشتی</b> هستم. مسیر حرفه‌ای من ترکیبی از معماری، طراحی دیجیتال و تکنولوژی بوده و در پروژه‌های مختلف تجربه طراحی، مدل‌سازی، مدیریت وب‌سایت و تولید محتوای بصری را به دست آورده‌ام.
+   <br><br>
+   حدود یک سال به عنوان طراح و مدیر وب‌سایت مجموعه شرکت‌های <b>ساری پویا، زرین کوپال و نورسرام</b> فعالیت کردم؛ با <span class="en">WordPress</span> و <span class="en">Joomla</span> کار کردم و تجربه‌ای در <span class="en">Database</span> نیز به دست آوردم.
+   در یک همکاری پروژه‌ای نیز طراحی وب‌سایت <b>هولدینگ اداک گستر الهام</b> را انجام دادم.
+   <br><br>
+   پس از آن حدود یک سال و نیم در حوزه <b>معماری، BIM و ساخت‌وساز</b> در شرکت معماری کوشک فعالیت کردم. در کنار این تجربه‌ها، به صورت فریلنسری در زمینه <b>طراحی لوگو و هویت بصری</b> نیز فعالیت داشته‌ام.
+  </div>
+  <div class="timeline">
+   <div class="job"><h3>شرکت معماری کوشک</h3><div class="meta">حدود ۱.۵ سال · معماری / BIM / ساخت‌وساز</div><p>طراحی، مدل‌سازی و مستندسازی پروژه‌های معماری.</p></div>
+   <div class="job"><h3>ساری پویا · زرین کوپال · نورسرام</h3><div class="meta">حدود ۱ سال · طراحی و مدیریت وب‌سایت</div><p><span class="en">WordPress · Joomla · Database</span></p></div>
+   <div class="job"><h3>هولدینگ اداک گستر الهام</h3><div class="meta">همکاری پروژه‌ای · Web Design</div><p>طراحی و اجرای وب‌سایت.</p></div>
+   <div class="job"><h3>Freelance</h3><div class="meta">Logo & Visual Identity</div><p>طراحی لوگو و پروژه‌های گرافیکی.</p></div>
+  </div>
+ </div>
+</div></section>
+
+<section id="skills" class="section"><div class="container">
+ <div class="eyebrow">SKILLS</div><h2>مهارت‌ها</h2>
+ <div class="skills-grid">
+  <div class="skill"><div class="skilltop"><span class="en">Microsoft Excel</span><small>10 / 10</small></div><div class="bar"><div class="fill" style="--w:100%"></div></div></div>
+  <div class="skill"><div class="skilltop"><span class="en">AutoCAD</span><small>9 / 10</small></div><div class="bar"><div class="fill" style="--w:90%"></div></div></div>
+  <div class="skill"><div class="skilltop"><span class="en">Lumion</span><small>9 / 10</small></div><div class="bar"><div class="fill" style="--w:90%"></div></div></div>
+  <div class="skill"><div class="skilltop"><span class="en">Photoshop</span><small>9 / 10</small></div><div class="bar"><div class="fill" style="--w:90%"></div></div></div>
+  <div class="skill"><div class="skilltop"><span class="en">Illustrator</span><small>9 / 10</small></div><div class="bar"><div class="fill" style="--w:90%"></div></div></div>
+  <div class="skill"><div class="skilltop"><span class="en">Revit</span><small>8 / 10</small></div><div class="bar"><div class="fill" style="--w:80%"></div></div></div>
+  <div class="skill"><div class="skilltop"><span class="en">SketchUp</span><small>8.5 / 10</small></div><div class="bar"><div class="fill" style="--w:85%"></div></div></div>
+  <div class="skill"><div class="skilltop"><span class="en">Premiere Pro</span><small>8 / 10</small></div><div class="bar"><div class="fill" style="--w:80%"></div></div></div>
+  <div class="skill"><div class="skilltop"><span class="en">Rhino</span><small>7 / 10</small></div><div class="bar"><div class="fill"><div class="fill" style="--w:70%"></div></div></div></div>
+  <div class="skill"><div class="skilltop"><span class="en">English</span><small>8 / 10</small></div><div class="bar"><div class="fill" style="--w:80%"></div></div></div>
+  <div class="skill"><div class="skilltop"><span class="en">After Effects</span><small>6 / 10</small></div><div class="bar"><div class="fill" style="--w:60%"></div></div></div>
+  <div class="skill"><div class="skilltop"><span class="en">SQL</span><small>3 / 10</small></div><div class="bar"><div class="fill" style="--w:30%"></div></div></div>
+  <div class="skill"><div class="skilltop"><span class="en">Python</span><small>4 / 10</small></div><div class="bar"><div class="fill" style="--w:40%"></div></div></div>
+ </div>
+ <div class="personal">
+  <div class="card"><h3>یادگیری سریع</h3><p><span class="en">Fast Learning · 9/10</span></p></div>
+  <div class="card"><h3>خلاقیت</h3><p><span class="en">Creativity · 9/10</span></p></div>
+  <div class="card"><h3>حل مسئله</h3><p><span class="en">Problem Solving · 8.5/10</span></p></div>
+  <div class="card"><h3>دقت و جزئیات</h3><p><span class="en">Attention to Detail · 9/10</span></p></div>
+  <div class="card"><h3>تفکر تحلیلی</h3><p><span class="en">Analytical Thinking · 8/10</span></p></div>
+  <div class="card"><h3>سازگاری</h3><p><span class="en">Adaptability · 9/10</span></p></div>
+ </div>
+</div></section>
+
+<section id="architecture" class="section"><div class="container">
+ <div class="eyebrow">ARCHITECTURE</div><h2>Portfolio معماری</h2>
+ <div class="architecture">
+  <iframe allowfullscreen="allowfullscreen" allow="autoplay; fullscreen; clipboard-write" scrolling="no" src="https://heyzine.com/flip-book/1c570b9cc4.html" title="Architecture Portfolio"></iframe>
+  <div class="arch-caption"><h3>Architecture / BIM / Construction</h3><p class="en">Flipbook Portfolio</p></div>
+ </div>
+</div></section>
+
+<section id="logos" class="section"><div class="container">
+ <div class="eyebrow">GRAPHIC DESIGN</div><h2>Logo & Visual Identity</h2>
+ <div class="logo-grid">
+  <div class="logo-card" onclick="openLogo(0)"><img src="logo-01.jpg" alt="Logo 01"><span class="num">01</span></div>
+  <div class="logo-card" onclick="openLogo(1)"><img src="logo-02.jpg" alt="Logo 02"><span class="num">02</span></div>
+  <div class="logo-card" onclick="openLogo(2)"><img src="logo-03.jpg" alt="Logo 03"><span class="num">03</span></div>
+  <div class="logo-card" onclick="openLogo(3)"><img src="logo-04.jpg" alt="Logo 04"><span class="num">04</span></div>
+  <div class="logo-card" onclick="openLogo(4)"><img src="logo-05.jpg" alt="Logo 05"><span class="num">05</span></div>
+  <div class="logo-card" onclick="openLogo(5)"><img src="logo-06.jpg" alt="Logo 06"><span class="num">06</span></div>
+ </div>
+ <p class="note">۶ تصویر با نسبت 4:3 نمایش داده می‌شوند و با کلیک وارد گالری تمام‌صفحه می‌شوند.</p>
+</div></section>
+
+<section id="web" class="section"><div class="container">
+ <div class="eyebrow">WEB DESIGN</div><h2>پروژه‌های وب</h2>
+ <div class="webgrid">
+  <a class="webcard" href="https://saripuya.ir/" target="_blank" rel="noopener"><h3>ساری پویا</h3><p>طراحی و مدیریت وب‌سایت</p><span class="visit">Visit Website ↗</span></a>
+  <a class="webcard" href="https://zarrinkupal.com/" target="_blank" rel="noopener"><h3>زرین کوپال</h3><p>طراحی و مدیریت وب‌سایت</p><span class="visit">Visit Website ↗</span></a>
+  <a class="webcard" href="https://noorseram.com/" target="_blank" rel="noopener"><h3>نورسرام</h3><p>طراحی و مدیریت وب‌سایت</p><span class="visit">Visit Website ↗</span></a>
+ </div>
+ <p class="note">برای این بخش عمداً لینک ساده گذاشته شده تا سایت شلوغ نشود؛ بعداً اگر Screenshotهای نسخه‌ای که خودت طراحی کردی را بدهی، می‌توانیم سه کارت تصویری حرفه‌ای‌تر بسازیم.</p>
+</div></section>
+
+<footer><div class="container">© 2026 Amir Mohammad Kalateh · Portfolio</div></footer>
+
+<div class="lightbox" id="lightbox" onclick="backdropClose(event)">
+ <div class="lightbox-inner">
+  <img id="lightboxImg" class="lightbox-img" src="" alt="">
+  <div class="controls"><button onclick="prevLogo(event)">← قبلی</button><button onclick="nextLogo(event)">بعدی →</button></div>
+  <div class="closehint">برای بستن روی فضای بیرون تصویر کلیک کنید · Esc</div>
+ </div>
+</div>
+
+<script>
+const logos=["logo-01.jpg","logo-02.jpg","logo-03.jpg","logo-04.jpg","logo-05.jpg","logo-06.jpg"];
+let current=0;
+function openLogo(i){current=i;document.getElementById("lightboxImg").src=logos[current];document.getElementById("lightbox").classList.add("active")}
+function nextLogo(e){e.stopPropagation();current=(current+1)%logos.length;document.getElementById("lightboxImg").src=logos[current]}
+function prevLogo(e){e.stopPropagation();current=(current-1+logos.length)%logos.length;document.getElementById("lightboxImg").src=logos[current]}
+function backdropClose(e){if(e.target.id==="lightbox")document.getElementById("lightbox").classList.remove("active")}
+document.addEventListener("keydown",e=>{if(e.key==="Escape")document.getElementById("lightbox").classList.remove("active");if(e.key==="ArrowRight")nextLogo(e);if(e.key==="ArrowLeft")prevLogo(e)})
+</script>
+</body>
+</html>
