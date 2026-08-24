@@ -458,6 +458,31 @@ document.addEventListener("keydown", function(event) {
     }
 
 });
+
+ /* ==========================================
+   PROTECT PORTFOLIO IMAGES
+   ========================================== */
+
+// جلوگیری از کلیک راست
+document.addEventListener("contextmenu", function(event) {
+    if (event.target.tagName === "IMG") {
+        event.preventDefault();
+    }
+});
+
+// جلوگیری از Drag کردن تصاویر
+document.addEventListener("dragstart", function(event) {
+    if (event.target.tagName === "IMG") {
+        event.preventDefault();
+    }
+});
+
+// جلوگیری از انتخاب تصاویر
+document.addEventListener("selectstart", function(event) {
+    if (event.target.tagName === "IMG") {
+        event.preventDefault();
+    }
+});
 </script>
 </body>
 </html>
