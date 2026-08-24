@@ -201,178 +201,22 @@ footer{padding:55px 0;color:#777;border-top:1px solid var(--line)}
 </div>
 
 
-<script>
-const projects = [
-    {
-        cover: "logos/logo-01/01.jpg",
-        images: [
-            "logos/logo-01/01.jpg",
-            "logos/logo-01/02.jpg",
-            "logos/logo-01/03.jpg",
-            "logos/logo-01/04.jpg",
-            "logos/logo-01/05.jpg",
-            "logos/logo-01/06.jpg"
-        ]
-    },
-    {
-        cover: "logos/logo-02/01.jpg",
-        images: [
-            "logos/logo-02/01.jpg",
-            "logos/logo-02/02.jpg",
-            "logos/logo-02/03.jpg",
-            "logos/logo-02/04.jpg",
-            "logos/logo-02/05.jpg"
-        ]
-    },
-    {
-        cover: "logos/logo-03/01.jpg",
-        images: [
-            "logos/logo-03/01.jpg",
-            "logos/logo-03/02.jpg",
-            "logos/logo-03/03.jpg",
-            "logos/logo-03/04.jpg"
-        ]
-    },
-    {
-        cover: "logos/logo-04/01.jpg",
-        images: [
-            "logos/logo-04/01.jpg",
-            "logos/logo-04/02.jpg",
-            "logos/logo-04/03.jpg",
-            "logos/logo-04/04.jpg"
-            "logos/logo-04/05.jpg"
-            "logos/logo-04/06.jpg"       
-        ]
-    },
-    {
-        cover: "logos/logo-05/01.jpg",
-        images: [
-            "logos/logo-05/01.jpg",
-            "logos/logo-05/02.jpg",
-            "logos/logo-05/03.jpg",
-            "logos/logo-05/04.jpg"
-            "logos/logo-05/05.jpg"
-         
-        ]
-    },
-    {
-        cover: "logos/logo-06/01.jpg",
-        images: [
-            "logos/logo-06/01.jpg",
-            "logos/logo-06/02.jpg",
-            "logos/logo-06/03.jpg",
-            "logos/logo-06/04.jpg"
-            "logos/logo-06/04.jpg"        
-        ]
-    }
-];
+<div class="lightbox" id="lightbox" onclick="backdropClose(event)">
+    <div class="lightbox-inner">
 
-let currentProject = 0;
-let currentImage = 0;
+        <div id="lightboxGallery" class="lightbox-gallery"></div>
 
-function openLogo(projectIndex) {
-    currentProject = projectIndex;
-    currentImage = 0;
+        <div class="controls">
+            <button onclick="prevLogo(event)">← قبلی</button>
+            <button onclick="nextLogo(event)">بعدی →</button>
+        </div>
 
-    const gallery = document.getElementById("lightboxGallery");
+        <div class="closehint">
+            برای بستن روی فضای بیرون کلیک کنید · Esc
+        </div>
 
-    if (!gallery) {
-        console.error("lightboxGallery not found");
-        return;
-    }
-
-    gallery.innerHTML = "";
-
-    projects[currentProject].images.forEach(function(image, index) {
-        const img = document.createElement("img");
-
-        img.src = image;
-        img.alt = "Project " + (currentProject + 1) + " - Image " + (index + 1);
-
-        gallery.appendChild(img);
-    });
-
-    document.getElementById("lightbox").classList.add("active");
-
-    gallery.scrollTop = 0;
-}
-
-function nextLogo(event) {
-    if (event) {
-        event.stopPropagation();
-    }
-
-    const gallery = document.getElementById("lightboxGallery");
-
-    if (!gallery) return;
-
-    const images = gallery.querySelectorAll("img");
-
-    if (images.length === 0) return;
-
-    currentImage++;
-
-    if (currentImage >= images.length) {
-        currentImage = images.length - 1;
-    }
-
-    images[currentImage].scrollIntoView({
-        behavior: "smooth",
-        block: "start"
-    });
-}
-
-function prevLogo(event) {
-    if (event) {
-        event.stopPropagation();
-    }
-
-    const gallery = document.getElementById("lightboxGallery");
-
-    if (!gallery) return;
-
-    const images = gallery.querySelectorAll("img");
-
-    if (images.length === 0) return;
-
-    currentImage--;
-
-    if (currentImage < 0) {
-        currentImage = 0;
-    }
-
-    images[currentImage].scrollIntoView({
-        behavior: "smooth",
-        block: "start"
-    });
-}
-
-function backdropClose(event) {
-    if (event.target.id === "lightbox") {
-        document.getElementById("lightbox").classList.remove("active");
-    }
-}
-
-document.addEventListener("keydown", function(event) {
-    const lightbox = document.getElementById("lightbox");
-
-    if (!lightbox || !lightbox.classList.contains("active")) {
-        return;
-    }
-
-    if (event.key === "Escape") {
-        lightbox.classList.remove("active");
-    }
-
-    if (event.key === "ArrowRight") {
-        nextLogo(event);
-    }
-
-    if (event.key === "ArrowLeft") {
-        prevLogo(event);
-    }
-});
-</script>
+    </div>
+</div>
 
 </body>
 </html>
