@@ -1,0 +1,14 @@
+.lightbox-gallery {
+    width: 100%;
+    max-height: 78vh;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+    border-radius: 10px;
+}
+
+.lightbox-gallery img {
+    width: 100%;
+    display: block;
+    margin-bottom: 18px;
+    border-radius: 8px;
+}
