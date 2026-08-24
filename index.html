@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
 <title>امیرمحمد کلاته | Portfolio</title>
 <style>
 :root{--bg:#151617;--panel:#202122;--soft:#292a2b;--line:#393a3b;--text:#f1f1ee;--muted:#a8a9a7}
@@ -184,7 +185,7 @@ footer{padding:55px 0;color:#777;border-top:1px solid var(--line)}
 
 <div class="lightbox" id="lightbox" onclick="backdropClose(event)">
  <div class="lightbox-inner">
-  <img id="lightboxImg" class="lightbox-img" src="" alt="">
+<div id="lightboxGallery" class="lightbox-gallery"></div>
   <div class="controls"><button onclick="prevLogo(event)">← قبلی</button><button onclick="nextLogo(event)">بعدی →</button></div>
   <div class="closehint">برای بستن روی فضای بیرون تصویر کلیک کنید · Esc</div>
  </div>
@@ -256,40 +257,65 @@ const projects = [
 let currentProject = 0;
 let currentImage = 0;
 
-function openLogo(projectIndex) {
+function openLogo(projectIndex){
+
     currentProject = projectIndex;
-    currentImage = 0;
 
-    document.getElementById("lightboxImg").src =
-        projects[currentProject].images[currentImage];
+    const gallery = document.getElementById("lightboxGallery");
 
-    document.getElementById("lightbox").classList.add("active");
+    gallery.innerHTML = "";
+
+    projects[currentProject].images.forEach(img=>{
+
+        gallery.innerHTML += `
+            <img src="${img}">
+        `;
+
+    });
+
+    gallery.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+    document
+        .getElementById("lightbox")
+        .classList.add("active");
+
 }
 
-function nextLogo(e) {
+function nextLogo(e){
+
     e.stopPropagation();
 
-    currentImage++;
+    const gallery =
+        document.getElementById("lightboxGallery");
 
-    if (currentImage >= projects[currentProject].images.length) {
-        currentImage = 0;
-    }
+    gallery.scrollBy({
 
-    document.getElementById("lightboxImg").src =
-        projects[currentProject].images[currentImage];
+        top: gallery.clientHeight * 0.9,
+
+        behavior:"smooth"
+
+    });
+
 }
 
-function prevLogo(e) {
+function prevLogo(e){
+
     e.stopPropagation();
 
-    currentImage--;
+    const gallery =
+        document.getElementById("lightboxGallery");
 
-    if (currentImage < 0) {
-        currentImage = projects[currentProject].images.length - 1;
-    }
+    gallery.scrollBy({
 
-    document.getElementById("lightboxImg").src =
-        projects[currentProject].images[currentImage];
+        top: -(gallery.clientHeight * 0.9),
+
+        behavior:"smooth"
+
+    });
+
 }
 
 function backdropClose(e) {
