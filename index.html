@@ -137,35 +137,38 @@ footer{padding:55px 0;color:#777;border-top:1px solid var(--line)}
 
 <section id="logos" class="section"><div class="container">
  <div class="eyebrow">GRAPHIC DESIGN</div><h2>Logo & Visual Identity</h2>
- <div class="logo-grid">
-<div class="logo-card" onclick="openLogo(0)">
-    <img src="logos/logo-01/01.jpg" alt="Logo Project 01">
-    <span class="num">01</span>
-</div>
+<div class="logo-grid">
 
-<div class="logo-card" onclick="openLogo(1)">
-    <img src="logos/logo-02/01.jpg" alt="Logo Project 02">
-    <span class="num">02</span>
-</div>
+    <div class="logo-card" onclick="openLogo(0)">
+        <img src="logos/logo-01/01.jpg" alt="Logo Project 01">
+        <span class="num">01</span>
+    </div>
 
-<div class="logo-card" onclick="openLogo(2)">
-    <img src="logos/logo-03/01.jpg" alt="Logo Project 03">
-    <span class="num">03</span>
-</div>
+    <div class="logo-card" onclick="openLogo(1)">
+        <img src="logos/logo-02/01.jpg" alt="Logo Project 02">
+        <span class="num">02</span>
+    </div>
 
-<div class="logo-card" onclick="openLogo(3)">
-    <img src="logos/logo-04/01.jpg" alt="Logo Project 04">
-    <span class="num">04</span>
-</div>
+    <div class="logo-card" onclick="openLogo(2)">
+        <img src="logos/logo-03/01.jpg" alt="Logo Project 03">
+        <span class="num">03</span>
+    </div>
 
-<div class="logo-card" onclick="openLogo(4)">
-    <img src="logos/logo-05/01.jpg" alt="Logo Project 05">
-    <span class="num">05</span>
-</div>
+    <div class="logo-card" onclick="openLogo(3)">
+        <img src="logos/logo-04/01.jpg" alt="Logo Project 04">
+        <span class="num">04</span>
+    </div>
 
-<div class="logo-card" onclick="openLogo(5)">
-    <img src="logos/logo-06/01.jpg" alt="Logo Project 06">
-    <span class="num">06</span>
+    <div class="logo-card" onclick="openLogo(4)">
+        <img src="logos/logo-05/01.jpg" alt="Logo Project 05">
+        <span class="num">05</span>
+    </div>
+
+    <div class="logo-card" onclick="openLogo(5)">
+        <img src="logos/logo-06/01.jpg" alt="Logo Project 06">
+        <span class="num">06</span>
+    </div>
+
 </div>
  </div>
  <p class="note">۶ تصویر با نسبت 4:3 نمایش داده می‌شوند و با کلیک وارد گالری تمام‌صفحه می‌شوند.</p>
@@ -184,31 +187,22 @@ footer{padding:55px 0;color:#777;border-top:1px solid var(--line)}
 <footer><div class="container">© 2026 Amir Mohammad Kalateh · Portfolio</div></footer>
 
 <div class="lightbox" id="lightbox" onclick="backdropClose(event)">
+
     <div class="lightbox-inner">
 
-        <div id="lightboxGallery" class="lightbox-gallery"></div>
-
-        <div class="controls">
-            <button onclick="prevLogo(event)">← قبلی</button>
-            <button onclick="nextLogo(event)">بعدی →</button>
+        <div id="lightboxGallery" class="lightbox-gallery">
         </div>
 
-        <div class="closehint">
-            برای بستن روی فضای بیرون کلیک کنید · Esc
-        </div>
-
-    </div>
-</div>
-
-
-<div class="lightbox" id="lightbox" onclick="backdropClose(event)">
-    <div class="lightbox-inner">
-
-        <div id="lightboxGallery" class="lightbox-gallery"></div>
-
         <div class="controls">
-            <button onclick="prevLogo(event)">← قبلی</button>
-            <button onclick="nextLogo(event)">بعدی →</button>
+
+            <button onclick="prevLogo(event)">
+                ← قبلی
+            </button>
+
+            <button onclick="nextLogo(event)">
+                بعدی →
+            </button>
+
         </div>
 
         <div class="closehint">
